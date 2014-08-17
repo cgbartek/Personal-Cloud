@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=300, initial-scale=1, user-scalable=no">
+<title>Teleprompter</title>
+<style>
+body {
+	background-color:#000;
+	color:#fff;
+}
+pre {
+	font-size:3em;
+	font-family:Arial, Helvetica, sans-serif;
+	width:100%;
+	white-space:pre-line;
+}
+</style>
+</head>
+
+<body>
+<pre>
+Teleprompter text goes here.
+
+Test 1.
+
+Test 2.
+
+Test 3.
+
+</pre>
+
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script>
+
+var action = "s";
+
+window.setInterval(function(){
+	if(action == "d"){
+		$('pre').css("margin-top",parseInt($('pre').css("margin-top"))-2+"px");
+	}
+	if(action == "u"){
+		if(parseInt($('pre').css("margin-top"))<0){
+			$('pre').css("margin-top",parseInt($('pre').css("margin-top"))+2+"px");
+		}
+	}
+}, 100);
+
+window.setInterval(function(){
+  $.get( urlgoeshere+"/cmd.php?a=tele", function( data ) {
+	  if(data) {
+		action = data;
+	  }
+});
+}, 1000);
+
+
+
+</script>
+
+</body>
+</html>
