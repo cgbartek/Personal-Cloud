@@ -24,7 +24,10 @@ if(!$api['a']) {
 
 // LOGIN
 if($api['a'] == 'login') {
-	$redirect = $api['r'];
+	$redirect = "remote";
+	if($api['r']) {
+		$redirect = $api['r'];
+	}
 	$username = $api['username'];
 	if($api['u']){
 		$username = $api['u'];

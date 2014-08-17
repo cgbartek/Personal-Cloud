@@ -23,7 +23,7 @@ if($_GET['redir']){
 		<input type="submit" value="Login">
 	</form>
 	
-	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/vendor/jquery-1.10.2.min.js"></script>
 	<script>
 		$("form").submit(function(e) {
 			e.preventDefault();

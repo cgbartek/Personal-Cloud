@@ -28,9 +28,9 @@ if(!isset($_SESSION['username']) && $_REQUEST['u'] && $_REQUEST['p']) {
 }
 
 if(!isset($_SESSION['username']) && !$success && $pagename != "api" && $pagename != "index") {
-	if($_REQUEST['p']) {
+	//if($_REQUEST['p']) {
 		header('Location: /?redir='.$pagename.'&u='.$_REQUEST['u'].'&p='.$_REQUEST['p']);
-	}
+	//}
 	die();
 }
 

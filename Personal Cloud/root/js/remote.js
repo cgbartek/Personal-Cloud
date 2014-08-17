@@ -3,9 +3,9 @@
 var Remote = Remote || {};
 Remote.currentId = 0;
 Remote.buttons = {
-    "0":{"type":"command", "command":"play artist steely dan", "icon":"img/btns/!.png", "class":"", "style":""},
-    "1":{"type":"command", "command":"previous", "icon":"img/btns/!.png", "class":"", "style":""},
-	"2":{"type":"command", "command":"next", "icon":"img/btns/!.png", "class":"", "style":""}
+    "0":{"type":"command", "command":"play", "icon":"img/btns/play.png", "class":"", "style":""},
+    "1":{"type":"command", "command":"previous", "icon":"img/btns/previous.png", "class":"", "style":""},
+	"2":{"type":"command", "command":"next", "icon":"img/btns/next.png", "class":"", "style":""}
 };
 Remote.icons = {};
 Remote.iconPos = 0;
