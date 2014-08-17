@@ -1,7 +1,7 @@
-personal-cloud
+Personal Cloud
 ==============
 
-Extensible PHP + SQLite server software for interfacing with home automation equipment, media players, and more.
+An extensible PHP + SQLite system for interfacing with home automation equipment, media players, and more.
 
 This code should be installed into a server solution such as Apache (or Slawdog Personal Cloud), which should run on the system you will be controlling your media, automation, etc. from. You may also wish to add port forwarding in order to connect to Personal Cloud remotely.
 
@@ -14,5 +14,7 @@ Future ideas:
 - Linux and MacOS support for file browser
 
 How you can contribute:
+- Comments and suggestions are welcome!
 - Add Linux and MacOS support for file browser
 - Add some home automation modules (Vera would be a good start)
+- An AI system to improve the voice control. I'm not really looking for this to be a Siri knockoff though.
