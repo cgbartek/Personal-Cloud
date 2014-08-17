@@ -30,11 +30,11 @@ if($api['a'] == 'login') {
 	}
 	$username = $api['username'];
 	if($api['u']){
-		$username = $api['u'];
+		$username = sqlite_escape_string($api['u']);
 	}
 	$password = md5($api['password']);
 	if($api['p']){
-		$password = $api['p'];
+		$password = sqlite_escape_string($api['p']);
 	}
 	$results = Core::query("SELECT * FROM users WHERE username = '$username' AND password = '$password';");
 	$row = $results->fetchArray(SQLITE3_ASSOC);
@@ -69,7 +69,7 @@ if($api['a'] == 'loadButtons') {
 
 // SAVE BUTTONS
 if($api['a'] == 'saveButtons') {
-	$content = $api['content'];
+	$content = sqlite_escape_string($api['content']);
 	$return['success'] = 1;
 	$results = Core::query("SELECT * FROM settings WHERE key LIKE 'remote.content' LIMIT 1");
 	$row = $results->fetchArray(SQLITE3_ASSOC);
