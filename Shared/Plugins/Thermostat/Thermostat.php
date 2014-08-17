@@ -8,9 +8,6 @@
 
 class Thermostat {
 	
-	// place your thermostat URL here (http:// included), without the trailing slash
-	//public static $url = "http://192.168.0.3";
-
 	// About
 	public static function about() {
 		return("Thermostat Plugin (C) 2014 Chris Bartek, Jr.");
