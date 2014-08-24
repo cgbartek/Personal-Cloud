@@ -1,16 +1,14 @@
 <?php
-// Page: cmd.php
+// Page: Command Service
 // Author: Chris Bartek, Jr.
 // Description: Slawdog Server Command Module
 
 // This page receives textual input and funnels it to the appropriate plugin, as well as handles a few things internally.
 
-include('config.php');
+require_once('config.php');
 
 // Use GET or POST
 $input = $_REQUEST;
-
-
 
 // No action string? Then let's use the whole querystring (don't do this unless you know the user is authenticated)
 if(!$input['a'] && !$input['user']) {
@@ -21,14 +19,10 @@ if(!$input['a'] && !$input['user']) {
 $command = explode(' ',$input['a']);
 
 // Does the base command match a registered plugin?
-function queryPlugins($command) {
-	foreach(Core::$commands as $k => $v) {
-		if($command[0] == $k) {
-			Core::echoResult($v::command($command)); // requires PHP 5.5+ to work
-		}
-	}
-}
-queryPlugins($command);
+Core::queryPlugins($command);
+
+// Attempt to let the plugins non-explicitly try and figure it out
+Core::tryPlugins($command);
 
 // Built-in Commands
 if($command[0] == "say" || $command[0] == "echo") {

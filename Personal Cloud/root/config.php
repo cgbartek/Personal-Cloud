@@ -20,7 +20,7 @@ if(!isset($_SESSION['username']) && $_REQUEST['u'] && $_REQUEST['p']) {
 	$api['a'] = "login";
 	$api['u'] = $_REQUEST['u'];
 	$api['p'] = $_REQUEST['p'];
-	include('api.php');
+	require_once('api.php');
 	$apiReturn = json_decode($apiReturn);
 	if($apiReturn['success']) {
 		$success = true;
@@ -36,7 +36,7 @@ if(!isset($_SESSION['username']) && !$success && $pagename != "api" && $pagename
 
 // Load Plugins
 foreach (Core::globRecursive("../../shared/plugins/*.php") as $filename) {
-    include $filename;
+    require_once $filename;
 	$className = basename($filename, ".php");
 	Core::addPlugin(basename($filename, ".php"));
 }

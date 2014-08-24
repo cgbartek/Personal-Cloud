@@ -29,6 +29,28 @@ class Core {
 		die();
 	}
 	
+	// Look for plugins with specific, registered intent
+	public static function queryPlugins($command,$silent=false) {
+		foreach(self::$commands as $k => $v) {
+			if($command[0] == $k) {
+				$return = $v::command($command);
+				if(!$silent){
+					self::echoResult($return); // requires PHP 5.5+ to work
+				}
+			}
+		}
+	}
+	
+	// Let all plugins attempt to guess the intent
+	public static function tryPlugins($command) {
+		foreach(self::$plugins as $k => $v) {
+			$try = $v::tryIt($command);
+			if($try){
+				self::echoResult($try);
+			}
+		}
+	}
+	
 	// Launch an executable
 	public static function execInBackground($path, $exe, $args = "") { 
 		if (file_exists($path . $exe)) { 
@@ -76,6 +98,7 @@ class Core {
 		$result = $row['val'];
 		return($result);
 	}
-
+	
 }
+
 ?>
